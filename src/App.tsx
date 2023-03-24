@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react'
+import React, { useState } from 'react'
 import { Box, Button } from '@mui/material'
 import { Editor, EditorState } from 'draft-js'
 import "draft-js/dist/Draft.css"
