@@ -1,14 +1,15 @@
-import React, { useState } from 'react'
-import { Box, TextField, Button } from '@mui/material'
+import React, { useState, useRef } from 'react'
+import { Box, Button } from '@mui/material'
+import { Editor, EditorState } from 'draft-js'
+import "draft-js/dist/Draft.css"
 import './App.css'
 
 function App() {
+    const [editorState, setEditorState] = React.useState(() =>
+        EditorState.createEmpty()
+    )
     const [code, setCode] = useState<string>('')
     const [str, setStr] = useState<string>('')
-
-    const inputChange = (event: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>, setState: Function): void => {
-        setState(event.target.value)
-    }
 
     const submit = (): void => {
         console.log(code)
@@ -23,29 +24,8 @@ function App() {
     return (
         <div className="App">
             <Box sx={{ p: 5, display: 'flex', gap: 5 }}>
-                <TextField
-                    id='code-text'
-                    label='Code'
-                    fullWidth
-                    value={code}
-                    inputProps={{
-                        autoComplete: 'off',
-                        color: 'primary',
-                        onChange: e => inputChange(e, setCode)
-                    }}
-                />
+                <Editor editorState={editorState} onChange={setEditorState} />
                 <Button sx={{ mt: 2 }} onClick={submit}>Submit</Button>
-                <TextField
-                    id='str-text'
-                    label='Str'
-                    fullWidth
-                    value={str}
-                    inputProps={{
-                        autoComplete: 'off',
-                        color: 'primary',
-                        onChange: e => inputChange(e, setStr)
-                    }}
-                />
             </Box>
         </div>
     )
