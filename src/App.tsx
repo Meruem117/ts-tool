@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Box, Button } from '@mui/material'
 import { Editor, EditorState } from 'draft-js'
-import "draft-js/dist/Draft.css"
+import 'draft-js/dist/Draft.css'
 import './App.css'
 
 function App() {
