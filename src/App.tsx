@@ -6,12 +6,13 @@ function App() {
     const [code, setCode] = useState<string>('')
     const [str, setStr] = useState<string>('')
 
-    const inputChange = (event: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>): void => {
-        setCode(event.target.value)
+    const inputChange = (event: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>, setState: Function): void => {
+        setState(event.target.value)
     }
 
     const submit = (): void => {
         console.log(code)
+        console.log(str)
     }
 
     const convertCodeToBody = (code: string): string[] => {
@@ -30,7 +31,7 @@ function App() {
                     inputProps={{
                         autoComplete: 'off',
                         color: 'primary',
-                        onChange: inputChange
+                        onChange: e => inputChange(e, setCode)
                     }}
                 />
                 <Button sx={{ mt: 2 }} onClick={submit}>Submit</Button>
@@ -42,7 +43,7 @@ function App() {
                     inputProps={{
                         autoComplete: 'off',
                         color: 'primary',
-                        onChange: inputChange
+                        onChange: e => inputChange(e, setStr)
                     }}
                 />
             </Box>
