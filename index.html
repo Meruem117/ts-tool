@@ -10,6 +10,8 @@
 
 <body>
     <div id="root"></div>
+    <!-- fix draft.js global is not defined -->
+    <script>const global = globalThis;</script>
     <script type="module" src="/src/main.tsx"></script>
 </body>
 

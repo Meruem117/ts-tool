@@ -1,13 +1,8 @@
 import React, { useState } from 'react'
-import { Box, Button } from '@mui/material'
-import { Editor, EditorState } from 'draft-js'
-import 'draft-js/dist/Draft.css'
+import Snippet from './pages/snippet'
 import './App.css'
 
-function App() {
-    const [editorState, setEditorState] = React.useState(() =>
-        EditorState.createEmpty()
-    )
+function App(): React.ReactElement {
     const [code, setCode] = useState<string>('')
     const [str, setStr] = useState<string>('')
 
@@ -23,10 +18,7 @@ function App() {
 
     return (
         <div className="App">
-            <Box sx={{ p: 5, display: 'flex', gap: 5 }}>
-                <Editor editorState={editorState} onChange={setEditorState} />
-                <Button sx={{ mt: 2 }} onClick={submit}>Submit</Button>
-            </Box>
+            <Snippet />
         </div>
     )
 }
