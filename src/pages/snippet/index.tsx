@@ -12,9 +12,16 @@ const Snippet: React.FC = () => {
 
     const copy = (): string => {
         const { blocks } = convertToRaw(editorState.getCurrentContent())
-        console.log(blocks)
         let body = ''
+        blocks.forEach(block => {
+            body += `"${regular(block.text)}",`
+        })
         return body
+    }
+
+    const regular = (text: string): string => {
+        let regularText = text.replaceAll('"', '\\"')
+        return regularText
     }
 
     return (
