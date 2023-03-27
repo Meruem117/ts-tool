@@ -20,7 +20,9 @@ const Snippet: React.FC = () => {
     }
 
     const regular = (text: string): string => {
-        let regularText = text.replaceAll('"', '\\"')
+        let regularText = text
+            .replaceAll('\\', '\\\\')
+            .replaceAll('"', '\\"')
         return regularText
     }
 
