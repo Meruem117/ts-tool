@@ -1,16 +1,33 @@
 import React, { lazy } from 'react'
 import { Routes, Route } from 'react-router-dom'
-import './App.css'
+import { Box, Link } from '@mui/material'
 
 const Snippet = lazy(() => import('./pages/snippet'))
 
 function App(): React.ReactElement {
     return (
-        <div className="App">
-            <Routes>
-                <Route path="snippet" element={<Snippet />} />
-            </Routes>
-        </div>
+        <Box sx={{
+            width: '100%',
+            padding: '30px 50px',
+            display: 'flex',
+            justifyContent: 'space-between'
+        }}>
+            <Box sx={{
+                width: '10%',
+                display: 'flex',
+                flexDirection: 'column',
+                borderRight: '1px dashed gray'
+            }}>
+                <Link href='snippet'>snippet</Link>
+            </Box>
+            <Box sx={{
+                width: '85%'
+            }}>
+                <Routes>
+                    <Route path="snippet" element={<Snippet />} />
+                </Routes>
+            </Box>
+        </Box>
     )
 }
 
