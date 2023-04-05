@@ -7,13 +7,12 @@ const Snippet = lazy(() => import('./pages/snippet'))
 function App(): React.ReactElement {
     return (
         <Box sx={{
-            width: '100%',
             padding: '30px 50px',
             display: 'flex',
             justifyContent: 'space-between'
         }}>
             <Box sx={{
-                width: '10%',
+                width: '12%',
                 display: 'flex',
                 flexDirection: 'column',
                 borderRight: '1px dashed gray'

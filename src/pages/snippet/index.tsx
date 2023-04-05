@@ -27,14 +27,16 @@ const Snippet: React.FC = () => {
     }
 
     return (
-        <div className={style.editor}>
-            <Editor editorState={editorState} onChange={setEditorState} />
+        <>
+            <div className={style.editor}>
+                <Editor editorState={editorState} onChange={setEditorState} />
+            </div>
             <div className={style.button}>
                 <CopyToClipboard text={copy()}>
                     <Button variant="outlined">Copy</Button>
                 </CopyToClipboard>
             </div>
-        </div>
+        </>
     )
 }
 
