@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
+import { CopyToClipboard } from 'react-copy-to-clipboard'
+import { Button } from '@mui/material'
 import { Editor, EditorState, convertToRaw } from 'draft-js'
 import 'draft-js/dist/Draft.css'
-import { Button } from '@mui/material'
-import { CopyToClipboard } from 'react-copy-to-clipboard'
 import style from './index.module.css'
 
 const Snippet: React.FC = () => {
