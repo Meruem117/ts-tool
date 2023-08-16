@@ -3,6 +3,7 @@ import { Routes, Route } from 'react-router-dom'
 import { Box, Link } from '@mui/material'
 
 const Snippet = lazy(() => import('./snippet'))
+const Sort = lazy(() => import('./sort'))
 
 const Index: React.FC = () => {
     return (
@@ -18,12 +19,14 @@ const Index: React.FC = () => {
                 borderRight: '1px dashed gray'
             }}>
                 <Link href='snippet'>snippet</Link>
+                <Link href='sort'>sort</Link>
             </Box>
             <Box sx={{
                 width: '85%'
             }}>
                 <Routes>
                     <Route path="snippet" element={<Snippet />} />
+                    <Route path="sort" element={<Sort />} />
                 </Routes>
             </Box>
         </Box>
