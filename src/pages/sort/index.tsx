@@ -14,7 +14,19 @@ const Sort: React.FC = () => {
         const { blocks } = convertToRaw(editorState.getCurrentContent())
         let body = ''
         let blockList = blocks.map(block => block.text)
+        console.log(split(blockList).sort())
         return body
+    }
+
+    const split = (list: string[]): string[] => {
+        let newList: string[] = []
+        list.forEach(item => {
+            if (item) {
+                let arr = item.split(' ').slice(1)
+                newList.push(arr.join(' '))
+            }
+        })
+        return newList
     }
 
     return (
