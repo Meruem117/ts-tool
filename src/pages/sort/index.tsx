@@ -10,12 +10,11 @@ const Sort: React.FC = () => {
         EditorState.createEmpty()
     )
 
-    const copy = (): string => {
+    const sort = (): void => {
         const { blocks } = convertToRaw(editorState.getCurrentContent())
-        let body = ''
         let blockList = blocks.map(block => block.text)
-        console.log(split(blockList).sort())
-        return body
+        let sortedList = split(blockList).sort()
+        console.log(sortedList)
     }
 
     const split = (list: string[]): string[] => {
@@ -35,9 +34,7 @@ const Sort: React.FC = () => {
                 <Editor editorState={editorState} onChange={setEditorState} />
             </div>
             <div className={style.button}>
-                <CopyToClipboard text={copy()}>
-                    <Button variant="outlined">Copy</Button>
-                </CopyToClipboard>
+                <Button variant="outlined" onClick={sort}>Sort</Button>
             </div>
         </>
     )
