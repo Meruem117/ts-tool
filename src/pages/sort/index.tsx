@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
-import { CopyToClipboard } from 'react-copy-to-clipboard'
 import { Button } from '@mui/material'
-import { Editor, EditorState, convertToRaw } from 'draft-js'
+import { Editor, EditorState, convertToRaw, Modifier } from 'draft-js'
 import 'draft-js/dist/Draft.css'
 import style from './index.module.css'
 
@@ -14,7 +13,6 @@ const Sort: React.FC = () => {
         const { blocks } = convertToRaw(editorState.getCurrentContent())
         let blockList = blocks.map(block => block.text)
         let sortedList = split(blockList).sort()
-        console.log(sortedList)
     }
 
     const split = (list: string[]): string[] => {
