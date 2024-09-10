@@ -23,6 +23,7 @@ const Snippet: React.FC = () => {
         let regularText = text
             .replaceAll('\\', '\\\\')
             .replaceAll('"', '\\"')
+            .replaceAll('$', '\\$')
         return regularText
     }
 
